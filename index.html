@@ -16,7 +16,7 @@
             .slice(1)
             .split("&")
             .map(function (s) {
-              return s.replace(/~and~/g, "&");
+              return s.replace(/and/g, "&");
             })
             .join("?");
           window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
@@ -139,7 +139,7 @@
     loadingSpinner.style.display = 'block';
 
     try {
-      const response = await axios.get('https://raw.githubusercontent.com/DoodstreamPro/_e/refs/heads/main/Video.json', { timeout: 10000 });
+      const response = await axios.get('https://raw.githubusercontent.com/slebew707/jikson/refs/heads/main/Video.json', { timeout: 10000 });
       const videos = response.data;
       const foundVideo = videos.find(video => video.id === videoId);
 
@@ -180,9 +180,9 @@
           errorMessage.style.display = 'block';
         });
 
-        console.log(`Memuat video: ${foundVideo.Judul} - ${foundVideo.Url}`);
+        console.log(Memuat video: ${foundVideo.Judul} - ${foundVideo.Url});
       } else {
-        errorMessage.textContent = `Video dengan ID ${videoId} tidak ditemukan.`;
+        errorMessage.textContent = Video dengan ID ${videoId} tidak ditemukan.;
         errorMessage.style.display = 'block';
       }
     } catch (error) {
