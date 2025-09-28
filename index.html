@@ -45,8 +45,8 @@
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adjusted shadow for white background */
-      background-color: #f0f0f0; /* Light gray for video container to maintain contrast */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background-color: #f0f0f0;
     }
     #video-player {
       width: 100%;
@@ -55,7 +55,7 @@
       object-fit: contain;
     }
     .loading-spinner {
-      border: 4px solid rgba(0, 0, 0, 0.3); /* Adjusted spinner colors */
+      border: 4px solid rgba(0, 0, 0, 0.3);
       border-top: 4px solid #000000;
       border-radius: 50%;
       width: 40px;
@@ -80,8 +80,8 @@
     }
   </style>
 </head>
-<body class="bg-white text-black font-sans"> <!-- Changed to white background and black text -->
-  <header class="bg-gray-100 py-4 px-6 fixed top-0 left-0 right-0 z-30 shadow-md"> <!-- Light gray header -->
+<body class="bg-white text-black font-sans">
+  <header class="bg-white py-4 px-6"> <!-- Changed to pure white, removed fixed and shadow -->
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-black">STREAM ENAK</h1>
       <nav>
@@ -92,7 +92,7 @@
     </div>
   </header>
 
-  <main class="pt-20 pb-10">
+  <main class="pt-4 pb-10"> <!-- Adjusted padding-top to reduce space since header is no longer fixed -->
     <div id="video-container" class="mt-4">
       <div class="loading-spinner" id="loading-spinner"></div>
       <video 
@@ -121,7 +121,7 @@
     </section>
   </main>
 
-  <footer class="bg-gray-100 py-4 px-6 text-center text-gray-700"> <!-- Light gray footer -->
+  <footer class="bg-gray-100 py-4 px-6 text-center text-gray-700">
     &copy; 2026 Videy. All rights reserved.
   </footer>
 
