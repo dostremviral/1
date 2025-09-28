@@ -36,7 +36,15 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1 0 auto;
+    }
+    footer {
+      flex-shrink: 0;
     }
     #video-container {
       width: 100%;
@@ -78,21 +86,34 @@
       text-align: center;
       margin-top: 20px;
     }
+    .upload-button {
+      background-color: #e5e7eb; /* bg-gray-200 */
+      border-radius: 30px; /* Setengah bulat */
+      padding: 7px 10px; /* Padding untuk membuat kotak */
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500; /* Membuat tulisan Upload sedikit lebih tebal */
+      transition: background-color 0.2s, color 0.2s; /* Efek transisi untuk hover */
+    }
+    .upload-button:hover {
+      background-color: #d1d5db; /* bg-gray-300 untuk hover */
+      color: #4b5563; /* text-gray-600 untuk hover */
+    }
   </style>
 </head>
 <body class="bg-white text-black font-sans">
-  <header class="bg-white py-4 px-6"> <!-- Changed to pure white, removed fixed and shadow -->
+  <header class="bg-white pt-3 pb-1 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-black">STREAM ENAK</h1>
       <nav>
-        <a href="https://dostremviral.github.io/PUBLIK-UPLOAD/" class="mx-2 hover:text-gray-600 text-black">
-          <i class="fas fa-upload"></i> Upload
+        <a href="https://dostremviral.github.io/PUBLIK-UPLOAD/" class="mx-2 text-black upload-button">
+          <i class="fas fa-upload mr-1"></i> Upload
         </a>
       </nav>
     </div>
   </header>
 
-  <main class="pt-4 pb-10"> <!-- Adjusted padding-top to reduce space since header is no longer fixed -->
+  <main class="pt-4 pb-10">
     <div id="video-container" class="mt-4">
       <div class="loading-spinner" id="loading-spinner"></div>
       <video 
@@ -113,7 +134,7 @@
       <div class="flex items-center mb-6">
         <div class="flex text-yellow-400 mr-4">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-          <span class="ml-2 text-black">4.5 / 5</span>
+          <span class="ml-2 text-black">5.5</span>
         </div>
         <span class="text-gray-600 mr-4"><i class="fas fa-eye mr-1"></i> 1,2M Views</span>
         <button id="share-button" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"><i class="fas fa-share-alt mr-1"></i> Share</button>
@@ -121,7 +142,7 @@
     </section>
   </main>
 
-  <footer class="bg-gray-100 py-4 px-6 text-center text-gray-700">
+  <footer class="bg-white py-4 px-6 text-center text-black">
     &copy; 2026 Videy. All rights reserved.
   </footer>
 
