@@ -32,7 +32,7 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
     html, body {
@@ -98,7 +98,16 @@
   <main class="pt-20 pb-10">
     <div id="video-container" class="mt-4">
       <div class="loading-spinner" id="loading-spinner"></div>
-      <video id="video-player" controls preload="metadata"></video>
+  
+  <video 
+  id="video-player" 
+  controls 
+  preload="metadata"
+  controlsList="nodownload noremoteplayback" 
+  disablePictureInPicture>
+  Your browser does not support the video tag.
+</video>
+
     </div>
     <div id="error-message" class="max-w-7xl mx-auto px-6"></div>
 
@@ -164,33 +173,7 @@
           videoTitle.textContent = foundVideo.Judul || 'Untitled Video';
           videoDescription.textContent = foundVideo.Description || 'No description available.';
 
-          // Init Fluid Player
-          const player = fluidPlayer('video-player', {
-            layoutControls: {
-              controlBar: {
-                autoHideTimeout: 3,
-                animated: true,
-                autoHide: true,
-                fullscreen: true,
-                playPause: true,
-                progress: true,
-                volume: true,
-                playbackRates: true,
-                theatreMode: true,
-                download: false
-              },
-              autoPlay: false,
-              mute: false,
-              allowTheatre: true,
-              playPauseAnimation: true,
-              playbackRateEnabled: true,
-              allowDownload: false,
-              playButtonShowing: true,
-              fillToContainer: true,
-              posterImage: foundVideo.PosterUrl || ""
-            },
-            vastOptions: { adList: [] }
-          });
+
 
           videoPlayer.addEventListener('error', () => {
             errorMessage.textContent = 'Error memutar video. Periksa koneksi atau format video.';
@@ -222,6 +205,14 @@
       });
     });
   </script>
+  
+  <script>
+  // Disable klik kanan pada video
+  const videoPlayer = document.getElementById('video-player');
+  videoPlayer.addEventListener('contextmenu', e => e.preventDefault());
+  
+</script>
+
 </body>
  
 </html>
